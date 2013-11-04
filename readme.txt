@@ -1,7 +1,7 @@
 === Implied Cookie Consent ===
 Contributors: Senktec
 Tags: cookie law, cookie warning, cookie consent
-Tested up to: 3.6.1
+Tested up to: 3.7.1
 Requires at least: 3.0.1
 Stable tag: trunk
 License: GPLv2 or later
@@ -28,7 +28,7 @@ This plugin uses jQuery (JavaScript) to show and hide the information bar. A coo
 == Installation ==
 
 1. Install this plugin in the usual way in 'wp-content/plugins'.
-2. Customise the info bar message and colour via the setting spage.
+2. Customise the info bar message and colour via the settings page.
 3. Customise the cookie information page.
 
 
