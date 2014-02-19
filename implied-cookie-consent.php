@@ -3,13 +3,13 @@
 Plugin Name: Implied Cookie Consent
 Plugin URI: http://wordpress.org/extend/plugins/implied-cookie-consent
 Description: Displays an unobtrusive cookie information bar when a user first visits the site.
-Version: 1.0
+Version: 1.1
 Author: Stefan Senk
 Author URI: http://www.senktec.com
 License: GPL2
 
 
-Copyright 2013  Stefan Senk  (email : info@senktec.com)
+Copyright 2014  Stefan Senk  (email : info@senktec.com)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License, version 2, as 
@@ -53,7 +53,7 @@ add_shortcode('icc_dismiss', function() {
 });
 
 add_shortcode('icc_delete', function() {
-	$html = '<span class="icc_delete_button">' . __('Delete cookies and leave') . '</span>';
+	$html = '<span class="icc_delete_button">' . __('Delete cookies and leave', 'implied-cookie-consent' ) . '</span>';
 	return apply_filters('icc_delete_button', $html);
 });
 

@@ -1,10 +1,10 @@
 <?php
 
 function icc_activation(){
-	$cookie_message = __( 'This site uses cookies. <a href="/cookies">Find out more about this site&rsquo;s cookies.</a> [icc_dismiss]' );
+	$cookie_message = __( 'This site uses cookies. <a href="/cookies">Find out more about this site&rsquo;s cookies.</a> [icc_dismiss]', 'implied-cookie-consent' );
 
-	$cookie_page_name =  __( 'Cookies' );
-	$cookie_page_content = '<h1>Cookies</h1>
+	$cookie_page_name =  __( 'Cookies', 'implied-cookie-consent' );
+	$cookie_page_content = __( '<h1>Cookies</h1>
 <p>This site uses cookies. Most websites do this. Our cookies aren\'t used to identify you personally, they\'re here to make the site work better and allow us to analyse how it\'s being used. You can delete these cookies as you wish, but some aspects of the site may not work correctly without cookies.</p>
 <p>To learn more about cookies and how to manage them, visit <a href="http://aboutcookies.org">AboutCookies.org</a>.</p>
 <h3>Specific Cookies Used</h3>
@@ -13,7 +13,7 @@ function icc_activation(){
 	<li>Account Cookies &mdash; If you have an account or comment on this site, cookies are used verify you are the same person when you are logged in, and your preferences. These include cookies beginning with wordpress_ and wp-settings-.</li>
 	<li>Cookie Message &mdash; Once you have been informed about cookies, a cookie is stored to track that you have seen the message, and it won\'t be shown again. This cookie is named icc_cookie_message.
 </ul>
-<p><strong>This page should be completed by the website admin...</strong></p>';
+<p><strong>This page should be completed by the website admin...</strong></p>', 'implied-cookie-consent' );
 
 	// Setup default options
 	$opt_name = 'implied_cookie_consent';
@@ -54,17 +54,20 @@ add_action( 'admin_enqueue_scripts', function() {
 
 add_filter( 'plugin_action_links', function($links, $file){
 	if ( $file == 'implied-cookie-consent/implied-cookie-consent.php' ) {
-		array_unshift( $links, '<a href="' . admin_url('options-general.php?page=implied-cookie-consent.php') . '">Settings</a>' );
+		array_unshift( $links, '<a href="' . admin_url('options-general.php?page=implied-cookie-consent.php') . '">' . __( 'Settings', 'implied-cookie-consent' ) . '</a>' );
 	}
 	return $links;
 }, 10, 2 );
   
 
 add_action('admin_menu', function(){
-	add_options_page("Implied Cookie Consent Options", "Implied Cookie Consent", 'manage_options', 'implied-cookie-consent.php', function(){
+	add_options_page( 
+		__( 'Implied Cookie Consent Options', 'implied-cookie-consent' ),
+		__( 'Implied Cookie Consent', 'implied-cookie-consent' ),
+		'manage_options', 'implied-cookie-consent.php', function(){
 		
 		if ( !current_user_can( 'manage_options' ) )  {
-			wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
+			wp_die( __( 'You do not have permission to access this page.', 'implied-cookie-consent' ) );
 		}
 
 		$opt_name = 'implied_cookie_consent';
@@ -83,7 +86,7 @@ add_action('admin_menu', function(){
 ?>
 		<div class="wrap">
 			<?php screen_icon(); ?>
-			<h2><?php echo __( 'Implied Cookie Consent Options', 'implied-cookie-consent' ); ?></h2>
+			<h2><?php _e( 'Implied Cookie Consent Options', 'implied-cookie-consent' ); ?></h2>
 
 			<form name="icc_form" method="post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>">  
 				<input type="hidden" name="<?php echo $hidden_field_name; ?>" value="Y"> 
