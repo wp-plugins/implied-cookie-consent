@@ -1,7 +1,7 @@
 === Implied Cookie Consent ===
 Contributors: Senktec
 Tags: cookie law, cookie warning, cookie consent
-Tested up to: 3.9
+Tested up to: 3.9.1
 Requires at least: 3.0.1
 Stable tag: 1.1
 License: GPLv2 or later
