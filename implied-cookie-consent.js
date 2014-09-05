@@ -7,36 +7,45 @@
 			set_seen_cookie_message();
 		}
 
-		jQuery('.icc_dismiss_button').click(function(){
+		$('.icc_dismiss_button').click(function(){
 			hide_cookie_message();
 		});
-		jQuery('.icc_delete_button').click(function(){
+		$('.icc_delete_button').click(function(){
 			remove_cookies();
 			window.location.replace("https://duckduckgo.com/");
 		});
 	});
 
 	function seen_cookie_message() {
-		return jQuery.cookie('icc_cookie_message') == 'yes';
+		return $.cookie('icc_cookie_message') == 'yes';
 	}
 	function set_seen_cookie_message() {
-		jQuery.cookie('icc_cookie_message', 'yes', { expires: 365 });
+		$.cookie('icc_cookie_message', 'yes', { expires: 365 });
 	}
 
 	function remove_cookies() {
-		jQuery.each(jQuery.cookie(), function(key, value){ 
-			jQuery.removeCookie(key);
+		$.each($.cookie(), function(key, value){ 
+			$.removeCookie(key);
 		});
 	}
 
 	function show_cookie_message() {
+		// Create a margin at the top of the page
 		$('html').css('margin-top', $('#icc_message').height());
+
+		// Handle the fixed header in TwentyForteen
+		if( $('.masthead-fixed #masthead').length ) {
+			$('.masthead-fixed #masthead').css('margin-top', $('#icc_message').height());
+			$('#icc_message').css({'position': 'fixed', 'z-index': 4});
+		}
+
 		$('#icc_message').show();
 	}
 
 	function hide_cookie_message() {
-		jQuery('#icc_message').hide();
-		jQuery('html').animate({'margin-top': 0});
+		$('html').animate({'margin-top': 0});
+		$('.masthead-fixed #masthead').animate({'margin-top': 0});
+		$('#icc_message').hide();
 	}
 
 })(jQuery);
