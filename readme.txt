@@ -1,7 +1,7 @@
 === Implied Cookie Consent ===
 Contributors: Senktec
 Tags: cookie law, cookie warning, cookie consent
-Tested up to: 4.0.0
+Tested up to: 3.8.1
 Requires at least: 3.0.1
 Stable tag: 1.1
 License: GPLv2 or later
@@ -10,9 +10,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-This plugin displays a customisable unobtrusive information bar at the top of the page informing the user about the site's use of cookies. This approach follows an implied consent model. It doesn't explicitly ask the user for consent before placing cookies, it merely informs them about the use of cookies. When the user navigates to a second page or clicks on the dismiss button, the bar is hidden. This approach is similar to that used on many government websites including gov.uk. 
+This plugin displays an unobtrusive information bar at the top of the page informing the user about the site's use of cookies. This approach follows an implied consent model. It doesn't explicitly ask the user for consent before placing cookies, it merely infoms them about the use of cookies. When the user navigates to a second page or clicks on the dismiss button, the bar is hidden. This approach is similar to that used on many government websites including gov.uk. 
 
-The plugin has settings in the wordpress admin which allow the colour and content of the information bar to be customised.
+The plugin has settings in the admin which allows the colour and content of the information bar to be customised.
 
 An example cookie information page will be created on installation of the plugin. It is up to you to correctly populate the text on that page.
 
@@ -43,17 +43,19 @@ Yes, you can get a handle via the 'icc_message' CSS ID:
 }`
 
 
-= Can I use my own page to display further information about Cookies? =
-
-Yes. This plugin creates a default page for you, but you don't have to use it, and you can delete it. You can create your own page wherever you like and update the cookie info bar message within the admin settings to link to the correct page.
-
 = Does this plugin analyse the cookies my site uses? =
 
-No. It is up to you to determine which cookies are used on your site and ensure the content on the page is appropriate.
+No. A cookies page with example information is created on installation of the plugin, but it is up to you to determine which cookies are used on your site and ensure the content on the page is appropriate.
+
+
+= Do I have to use the cookies page the plugin creates? =
+
+No, absolutely not. Create your own page wherever you like and update the cookie info bar message in the settings to link to the correct page.
+
 
 = Does installing this plugin guarantee compliance with the EU Cookie Law? =
 
-The plugin author can't provide any guarantee that installing this plugin will make your site compliant with the EU Cookie Law. You should verify that the consent model used here is appropriate for your site.
+No. The plugin author can't provide any guarantee that installing this plugin will make your site compliant with the EU Cookie Law. You should verify that the consent model used here is appropriate for your site.
 
 
 == Screenshots ==
@@ -64,6 +66,9 @@ The plugin author can't provide any guarantee that installing this plugin will m
 
 == Upgrade Notice ==
 
+= 1.2 =
+Fix to using apostrophes within the message.
+
 = 1.1 =
 Improve support for multi-language.
 
@@ -72,6 +77,10 @@ First version of this plugin.
 
 
 == Changelog ==
+
+= 1.2 =
+* Strips slashes from the message when displayed in the page.
+* Updates to documentation.
 
 = 1.1 =
 * Improve support for i18n.
