@@ -3,7 +3,7 @@
 Plugin Name: Implied Cookie Consent
 Plugin URI: http://wordpress.org/extend/plugins/implied-cookie-consent
 Description: Displays an unobtrusive cookie information bar when a user first visits the site.
-Version: 1.1
+Version: 1.2
 Author: Stefan Senk
 Author URI: http://www.senktec.com
 License: GPL2
