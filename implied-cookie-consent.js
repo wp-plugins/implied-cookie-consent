@@ -33,7 +33,7 @@
 		// Create a margin at the top of the page
 		$('html').css('margin-top', $('#icc_message').height());
 
-		// Handle the fixed header in TwentyForteen
+		// Handle the fixed header in TwentyFourteen
 		if( $('.masthead-fixed #masthead').length ) {
 			$('.masthead-fixed #masthead').css('margin-top', $('#icc_message').height());
 			$('#icc_message').css({'position': 'fixed', 'z-index': 4});
