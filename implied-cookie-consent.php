@@ -2,7 +2,7 @@
 /*
 Plugin Name: Implied Cookie Consent
 Plugin URI: http://wordpress.org/extend/plugins/implied-cookie-consent
-Description: Displays a customisable unobtrusive cookie information bar when a user first visits the site.
+Description: Displays an unobtrusive cookie information bar when a user first visits the site.
 Version: 1.1
 Author: Stefan Senk
 Author URI: http://www.senktec.com
@@ -43,7 +43,7 @@ add_action('wp_enqueue_scripts', function(){
 
 add_action('wp_footer', function(){
 	$options = get_option( 'implied_cookie_consent' );
-	$html = '<div id="icc_message" style="background-color: ' . $options['bgcolor'] . ';">' . do_shortcode( $options['message'] ) . '</div>';
+	$html = '<div id="icc_message" style="background-color: ' . $options['bgcolor'] . ';">' . do_shortcode( stripslashes( $options['message'] ) ) . '</div>';
 	echo apply_filters('icc_message_html', $html);
 });
 

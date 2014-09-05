@@ -78,7 +78,7 @@ add_action('admin_menu', function(){
 		$options = get_option( $opt_name );
 
 		if( isset($_POST[ $hidden_field_name ]) && $_POST[ $hidden_field_name ] == 'Y' ) {
-			$options['message'] = wp_kses_stripslashes( $_POST[ $opt_message_name ] );
+			$options['message'] = stripslashes( $_POST[ $opt_message_name ] );
 			$options['bgcolor'] = $_POST[ $opt_bgcolor_name ];
 			update_option( $opt_name, $options );
 			echo '<div class="updated"><p><strong>' . __( 'Options saved.', 'implied-cookie-consent' ) . '</strong></p></div>';
@@ -93,7 +93,7 @@ add_action('admin_menu', function(){
 
 				<p>
 					<label for="<?php echo $opt_message_name; ?>"><?php _e("Cookie info message displayed to the user (optionally use the [icc_dismiss] shortcode to add a dismiss button): ", 'implied-cookie-consent'); ?></label><br>
-					<textarea name="<?php echo $opt_message_name; ?>" cols="80" rows="3"><?php echo $options['message']; ?></textarea>
+					<textarea name="<?php echo $opt_message_name; ?>" cols="80" rows="3"><?php echo stripslashes( $options['message'] ); ?></textarea>
 				</p>
 				<p>
 					<label for="<?php echo $opt_bgcolor_name; ?>"><?php _e("Cookie info message background color: ", 'implied-cookie-consent'); ?></label><br>
